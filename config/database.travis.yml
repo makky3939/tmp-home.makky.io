@@ -1,0 +1,4 @@
+test:
++  adapter: mysq2
++  database: home_makky_io_test
++  username: root
