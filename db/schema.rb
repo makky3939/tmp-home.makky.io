@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150803121331) do
 
   create_table "atmospheres", force: :cascade do |t|
-    t.integer  "log_id",     limit: 4,  null: false
+    t.integer  "log_id",     limit: 4
     t.float    "value",      limit: 24, null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150803121331) do
   add_index "atmospheres", ["log_id"], name: "index_atmospheres_on_log_id", using: :btree
 
   create_table "humidities", force: :cascade do |t|
-    t.integer  "log_id",     limit: 4,  null: false
+    t.integer  "log_id",     limit: 4
     t.float    "value",      limit: 24, null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150803121331) do
   add_index "logs", ["temperature_id"], name: "index_logs_on_temperature_id", using: :btree
 
   create_table "temperatures", force: :cascade do |t|
-    t.integer  "log_id",     limit: 4,  null: false
+    t.integer  "log_id",     limit: 4
     t.float    "value",      limit: 24, null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
