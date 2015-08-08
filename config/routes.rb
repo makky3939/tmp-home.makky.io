@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :log, only: [:create]
+      resources :logs, only: [:create]
     end
   end
 
