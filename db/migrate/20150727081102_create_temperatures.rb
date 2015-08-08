@@ -1,7 +1,7 @@
 class CreateTemperatures < ActiveRecord::Migration
   def change
     create_table :temperatures do |t|
-      t.references :log, null: false
+      t.references :log
       t.float :value, null: false
 
       t.timestamps null: false
