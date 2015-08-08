@@ -1,4 +1,6 @@
 class Api::V1::LogsController < ApplicationController
+  protect_from_forgery except: :create
+
   def create
     location = Location.exist? log_params[:location]
 
