@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   resources :dashboard, only: [:index]
+  
+  resources :logs, only: [:index, :show]
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
