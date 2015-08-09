@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: home_makky_io_production
-  username: home_makky_io
-  password: <%= ENV['HOME_MAKKY_IO_DATABASE_PASSWORD'] %>
