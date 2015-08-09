@@ -50,3 +50,7 @@ test:
 production:
   <<: *default
   database: home_makky_io_production
+  username: root
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+  host: <%= ENV['DB_PORT_3306_TCP_ADDR'] %>
+  port: <%= ENV['DB_PORT_3306_TCP_PORT'] %>
