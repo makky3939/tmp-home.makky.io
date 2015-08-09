@@ -1,0 +1,29 @@
+DOCTYPE
+html
+  head
+    title HomeMakkyIo
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    nav.navbar.navbar-default(role="navigation")
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+            span.sr-only Toggle navigation
+            - 3.times.each do |i|
+              span.icon-bar
+
+          = link_to 'home.makke.io', dashboard_index_path, class: 'navbar-brand'
+          
+
+        .collapse.navbar-collapse#bs-example-navbar-collapse-1
+          ul.nav.navbar-nav
+            li
+              = link_to 'Dashboard', dashboard_index_path
+            li
+              = link_to 'Logs', logs_path
+
+    .container
+      = yield

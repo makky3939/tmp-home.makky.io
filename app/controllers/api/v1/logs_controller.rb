@@ -1,4 +1,10 @@
 class Api::V1::LogsController < ApplicationController
+  protect_from_forgery except: :create
+
+  before_filter {
+    digest_authentication
+  }
+
   def create
     location = Location.exist? log_params[:location]
 
@@ -26,5 +32,12 @@ class Api::V1::LogsController < ApplicationController
   private
   def log_params
     params.permit :location, :atmosphere, :humidity, :temperature
+  end
+  
+  def digest_authentication
+    authenticate_or_request_with_http_basic do |name, password|
+      device = Device.find_by name: name
+      device.authoricate name, password
+    end
   end
 end
