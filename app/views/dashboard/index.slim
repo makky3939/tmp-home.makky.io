@@ -1,0 +1,10 @@
+h1 Dashboard
+
+- if @log.nil?
+   p The log does not exist.
+- unless @log.nil?
+  p = "Atmosphere: #{@log.atmosphere.value}hPa"
+  p = "Humidity: #{@log.humidity.value}%"
+  p = "Temperature: #{@log.temperature.value}℃"
+  p = "Location: #{@log.location.name}"
+  p = "Updated_at: #{@log.updated_at}"
