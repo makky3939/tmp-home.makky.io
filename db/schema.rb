@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803121331) do
+ActiveRecord::Schema.define(version: 20150809025635) do
 
   create_table "atmospheres", force: :cascade do |t|
     t.integer  "log_id",     limit: 4
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20150803121331) do
   end
 
   add_index "atmospheres", ["log_id"], name: "index_atmospheres_on_log_id", using: :btree
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "name",             limit: 32,             null: false
+    t.string   "crypted_password", limit: 32,             null: false
+    t.string   "salt",             limit: 32,             null: false
+    t.integer  "roll",             limit: 4,  default: 0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
 
   create_table "humidities", force: :cascade do |t|
     t.integer  "log_id",     limit: 4

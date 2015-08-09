@@ -1,6 +1,6 @@
 class Api::V1::LogsController < ApplicationController
   protect_from_forgery except: :create
-  USERS = { 'naoty' => 'coolguy' }
+
   before_filter {
     digest_authentication
   }
@@ -35,7 +35,9 @@ class Api::V1::LogsController < ApplicationController
   end
   
   def digest_authentication
-    authenticate_or_request_with_http_digest do |name|
+    authenticate_or_request_with_http_basic do |name, password|
+      device = Device.find_by name: name
+      device.authoricate name, password
     end
   end
 end
