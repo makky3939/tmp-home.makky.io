@@ -2,7 +2,7 @@ class Api::V1::LogsController < ApplicationController
   protect_from_forgery except: :create
 
   before_filter {
-    digest_authentication unless Rails.env.test?
+    digest_authentication unless Rails.env.test? or Rails.env.development?
   }
 
   def create

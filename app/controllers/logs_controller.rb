@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   def index
-    @logs = Log.all
+    @logs = Log.all.order('created_at desc').first(10)
   end
   
   def show

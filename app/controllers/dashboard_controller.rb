@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @log = Log.last(1).first
+    targets = Log.group('location_id').maximum('created_at').values
+    @current_logs = Log.where(created_at: targets)
   end
 end
