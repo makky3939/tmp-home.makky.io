@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -r
 # ONBUILD RUN bundle exec rake db:create RAILS_ENV=production
 # ONBUILD RUN bundle exec rake db:migrate RAILS_ENV=production
 
+VOLUME /usr/src/app/public
+VOLUME /usr/src/app/log
+
 EXPOSE 8080
 
 # CMD ["bundle", "exec", "foreman", "start" ]
