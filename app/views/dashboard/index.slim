@@ -1,10 +1,36 @@
-h1 Dashboard
+h1 Current status
+hr
 
-- if @log.nil?
-   p The log does not exist.
-- unless @log.nil?
-  p = "Atmosphere: #{@log.atmosphere.value}hPa"
-  p = "Humidity: #{@log.humidity.value}%"
-  p = "Temperature: #{@log.temperature.value}℃"
-  p = "Location: #{@log.location.name}"
-  p = "Updated_at: #{@log.updated_at}"
+- if @current_logs.nil?
+  .alert.alert-info
+     p The log does not exist.
+
+- unless @current_logs.nil?
+
+  - @current_logs.each do |log|
+    h2 = log.location.name
+  
+    .col-sm-4.panel.panel-default
+      .panel-body.text-center
+        p Temperature
+        h1
+          = "#{log.temperature.value}"
+          small ℃
+  
+    .col-sm-4.panel.panel-default
+      .panel-body.text-center
+        p Humidity
+        h1
+          = "#{log.humidity.value}"
+          small %
+  
+    .col-sm-4.panel.panel-default
+      .panel-body.text-center
+        p Atmosphere
+        h1
+          = "#{log.atmosphere.value}"
+          small hPa
+      
+    .col-xs-12
+      .text-right
+        p = "created at: #{log.created_at}"

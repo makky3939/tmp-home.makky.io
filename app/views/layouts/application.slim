@@ -1,8 +1,8 @@
 DOCTYPE
 html
   head
-    title HomeMakkyIo
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    title home.makky.io
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
@@ -15,7 +15,7 @@ html
             - 3.times.each do |i|
               span.icon-bar
 
-          = link_to 'home.makke.io', dashboard_index_path, class: 'navbar-brand'
+          = link_to 'home.makky.io', dashboard_index_path, class: 'navbar-brand'
           
 
         .collapse.navbar-collapse#bs-example-navbar-collapse-1
@@ -27,3 +27,9 @@ html
 
     .container
       = yield
+      
+    .container
+      hr
+      .text-center
+        p &copy; makky.io
+    
