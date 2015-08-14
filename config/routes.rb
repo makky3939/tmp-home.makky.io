@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  root to: redirect('/dashboard')
+  
   resources :dashboard, only: [:index]
   
   resources :logs, only: [:index, :show]
