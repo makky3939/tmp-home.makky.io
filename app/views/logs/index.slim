@@ -1,20 +1,21 @@
-table.table
-  thead
-    tr
-      th id
-      th Location
-      th Temperature
-      th Humidity
-      th Atmosphere
-      th Created at
-
-  tbody
-    - @logs.each do |log|
+.container
+  table.table
+    thead
       tr
-        td = link_to log.id, log_path(log)
-        td = "#{log.location.name}"
-        td = "#{log.temperature.value}℃"
-        td = "#{log.humidity.value}%"
-        td = "#{log.atmosphere.value}hPa"
-        td = "#{log.created_at}"
-  
+        th id
+        th Location
+        th Temperature
+        th Humidity
+        th Atmosphere
+        th Created at
+
+    tbody
+      - @logs.each do |log|
+        tr
+          td = link_to log.id, log_path(log)
+          td = "#{log.location.name}"
+          td = "#{log.temperature.value}℃"
+          td = "#{log.humidity.value}%"
+          td = "#{log.atmosphere.value}hPa"
+          td = "#{log.updated_at}"
+    

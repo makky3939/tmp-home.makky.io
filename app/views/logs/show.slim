@@ -1,32 +1,33 @@
-h1 = "##{@log.id}"
-hr
+.container
+  h1 = "##{@log.id}"
+  hr
 
-.col-md-4
-  .panel.panel-default
-    .panel-body
-      p 測定箇所
-      h2 = "#{@log.location.name}"
+  .col-md-4
+    .panel.panel-default
+      .panel-body
+        p 測定箇所
+        h2 = "#{@log.location.name}"
 
-.col-md-4
-  .panel.panel-default
-    .panel-body
-      p 温度
-      h2 = "#{@log.temperature.value}℃"
+  .col-md-4
+    .panel.panel-default
+      .panel-body
+        p 温度
+        h2 = "#{@log.temperature.value}℃"
 
-.col-md-4
-  .panel.panel-default
-    .panel-body
-      p 湿度
-      h2 = "#{@log.humidity.value}%"
+  .col-md-4
+    .panel.panel-default
+      .panel-body
+        p 湿度
+        h2 = "#{@log.humidity.value}%"
 
-.col-md-4
-  .panel.panel-default
-    .panel-body
-      p 気圧
-      h2 = "#{@log.atmosphere.value}hPa"
+  .col-md-4
+    .panel.panel-default
+      .panel-body
+        p 気圧
+        h2 = "#{@log.atmosphere.value}hPa"
 
-.col-md-4
-  .panel.panel-default
-    .panel-body
-      h2 作成
-      p = "#{@log.created_at}"
+  .col-md-4
+    .panel.panel-default
+      .panel-body
+        p 作成
+        h2 = "#{@log.created_at}"
