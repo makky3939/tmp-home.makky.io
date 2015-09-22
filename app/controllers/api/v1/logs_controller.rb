@@ -30,6 +30,7 @@ class Api::V1::LogsController < ApplicationController
     log.temperature = temperature
 
      if log.save
+      WebsocketRails[:streaming].trigger "update", log.location.id
       render json: {}
     else
       render json: {}

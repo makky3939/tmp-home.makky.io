@@ -1,36 +1,40 @@
-h1 Current status
-hr
+.container
+  h1 Current status
+  hr
 
-- if @current_logs.nil?
-  .alert.alert-info
-     p The log does not exist.
+  - if @current_logs.nil?
+    .alert.alert-info
+       p The log does not exist.
 
 - unless @current_logs.nil?
 
   - @current_logs.each do |log|
-    h2 = log.location.name
-  
-    .col-sm-4.panel.panel-default
-      .panel-body.text-center
-        p Temperature
-        h1
-          = "#{log.temperature.value}"
-          small ℃
-  
-    .col-sm-4.panel.panel-default
-      .panel-body.text-center
-        p Humidity
-        h1
-          = "#{log.humidity.value}"
-          small %
-  
-    .col-sm-4.panel.panel-default
-      .panel-body.text-center
-        p Atmosphere
-        h1
-          = "#{log.atmosphere.value}"
-          small hPa
+    .row.log data-location-id="#{log.location.id}"
+      .container
+        h2 = log.location.name
       
-    .col-xs-12
-      .text-right
-        p = "created at: #{log.created_at}"
+        .col-sm-4.panel.panel-default
+          .panel-body.text-center
+            p Temperature
+            .h1.temperature
+              = "#{log.temperature.value}"
+            small ℃
+      
+        .col-sm-4.panel.panel-default
+          .panel-body.text-center
+            p Humidity
+            .h1.humidity
+              = "#{log.humidity.value}"
+            small %
+      
+        .col-sm-4.panel.panel-default
+          .panel-body.text-center
+            p Atmosphere
+            .h1.atmosphere
+              = "#{log.atmosphere.value}"
+            small hPa
+          
+        .col-xs-12
+          .text-right
+            span = "updated at: "
+            span.updated_at = "#{log.updated_at}"
